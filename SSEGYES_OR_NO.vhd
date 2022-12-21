@@ -1,0 +1,20 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+ENTITY SSEGYES_OR_NO IS
+PORT ( bcd : IN STD_LOGIC_VECTOR(3 DOWNTO 0) ;
+Sign : IN STD_LOGIC;
+leds : OUT STD_LOGIC_VECTOR(1 TO 7);
+ledss : OUT STD_LOGIC_VECTOR(1 TO 7));
+END SSEGYES_OR_NO;
+
+ARCHITECTURE Behavior OF SSEGYES_OR_NO IS
+BEGIN
+PROCESS ( bcd )
+BEGIN
+if (bcd(0)) = '0' THEN 
+leds <= "1000100";
+ELSIF (bcd(0)) = '1' THEN
+leds <= "0001001"; 
+end if;
+END PROCESS ;
+END Behavior ;
